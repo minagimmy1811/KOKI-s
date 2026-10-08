@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>For Koki</title>
+<meta name="description" content="A little appreciation page for Clara — Koki — on her way to graduation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f4ea;
+    --bg-alt: #eef0e0;
+    --surface: #ffffff;
+    --ink: #2b2f24;
+    --muted: #646a58;
+    --matcha: #6f8f3a;
+    --matcha-deep: #4d6a24;
+    --matcha-soft: #dfe8c8;
+    --blush: #e9a8a0;
+    --line: #d9dcc8;
+    --shadow: 0 10px 30px rgba(60, 70, 30, .10);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #171a13;
+      --bg-alt: #1d2117;
+      --surface: #242a1d;
+      --ink: #eef0e4;
+      --muted: #a9b097;
+      --matcha: #a3c46a;
+      --matcha-deep: #c3dc94;
+      --matcha-soft: #2f3a22;
+      --blush: #e9a8a0;
+      --line: #3a4230;
+      --shadow: 0 10px 30px rgba(0, 0, 0, .35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #171a13;
+    --bg-alt: #1d2117;
+    --surface: #242a1d;
+    --ink: #eef0e4;
+    --muted: #a9b097;
+    --matcha: #a3c46a;
+    --matcha-deep: #c3dc94;
+    --matcha-soft: #2f3a22;
+    --blush: #e9a8a0;
+    --line: #3a4230;
+    --shadow: 0 10px 30px rgba(0, 0, 0, .35);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Inter", system-ui, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  section.page {
+    min-height: 100vh;
+    min-height: 100svh;
+    scroll-snap-align: start;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 72px 16px;
+    position: relative;
+  }
+  section.page:nth-of-type(even) { background: var(--bg-alt); }
+  .inner { width: 100%; max-width: 760px; }
+
+  .eyebrow {
+    font-size: .8rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--matcha);
+    font-weight: 600;
+    margin: 0 0 12px;
+  }
+  h1, h2 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 600;
+    line-height: 1.15;
+    margin: 0 0 20px;
+    text-wrap: balance;
+  }
+  h1 { font-size: clamp(2.6rem, 9vw, 5rem); }
+  h2 { font-size: clamp(1.9rem, 5.5vw, 3rem); }
+  p { font-size: 1.08rem; margin: 0 0 16px; color: var(--ink); }
+  .muted { color: var(--muted); }
+  em.q { font-style: normal; background: var(--matcha-soft); padding: 0 6px; border-radius: 6px; }
+
+  .verse {
+    margin: 36px 0 0;
+    padding: 20px 22px;
+    border-left: 3px solid var(--matcha);
+    background: var(--surface);
+    border-radius: 0 14px 14px 0;
+    box-shadow: var(--shadow);
+  }
+  .verse .theme {
+    display: inline-block;
+    font-size: .72rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--matcha-deep);
+    margin-bottom: 6px;
+  }
+  .verse blockquote {
+    margin: 0;
+    font-family: "Fraunces", Georgia, serif;
+    font-style: italic;
+    font-size: 1.18rem;
+    line-height: 1.5;
+  }
+  .verse cite { display: block; margin-top: 8px; font-style: normal; font-size: .9rem; color: var(--muted); }
+
+  .next {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 32px;
+    padding: 12px 20px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 500;
+    transition: transform .2s, border-color .2s;
+  }
+  .next:hover { transform: translateY(2px); border-color: var(--matcha); }
+
+  /* Hero */
+  .hero { text-align: center; }
+  .hero .name { color: var(--matcha); }
+  .hero .verse { text-align: left; }
+  .sub { font-size: 1.2rem; color: var(--muted); }
+
+  /* Stat strip */
+  .years { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 28px 0 8px; }
+  .year {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 16px 12px;
+    text-align: center;
+  }
+  .year b { display: block; font-family: "Fraunces", serif; font-size: 1.8rem; color: var(--matcha); }
+  .year span { font-size: .85rem; color: var(--muted); }
+
+  /* Months track */
+  .track { display: grid; grid-template-columns: repeat(9, 1fr); gap: 6px; margin: 28px 0 10px; }
+  .month {
+    aspect-ratio: 1;
+    border-radius: 10px;
+    background: var(--matcha-soft);
+    display: flex; align-items: center; justify-content: center;
+    font-size: .72rem; font-weight: 600; color: var(--matcha-deep);
+  }
+  .month.goal { background: var(--matcha); color: var(--surface); font-size: 1.1rem; }
+  .track-label { display: flex; justify-content: space-between; font-size: .85rem; color: var(--muted); }
+
+  /* Fact cards */
+  .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; margin-top: 24px; }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 18px;
+  }
+  .card h3 { margin: 0 0 10px; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  .card ul { list-style: none; margin: 0; padding: 0; }
+  .card li { display: flex; align-items: center; gap: 10px; padding: 5px 0; }
+  .card .ico { font-size: 1.3rem; width: 1.6rem; text-align: center; }
+  .card.nope li .ico { position: relative; }
+  .card.nope li .ico::after {
+    content: ""; position: absolute; left: -2px; right: -2px; top: 50%;
+    height: 2px; background: #c94a3f; transform: rotate(-35deg);
+  }
+  .card.love { border-color: var(--matcha); }
+
+  /* Memories */
+  .memories { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0 0; padding: 0; list-style: none; }
+  .memories li {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 999px; padding: 8px 14px; font-size: .95rem;
+  }
+
+  /* Final letter */
+  .letter {
+    background: var(--surface);
+    border-radius: 20px;
+    padding: 32px 26px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--line);
+  }
+  .letter p { font-size: 1.12rem; }
+  .letter .hi { font-family: "Fraunces", serif; font-size: 1.8rem; color: var(--matcha); margin-bottom: 14px; }
+  .letter .sign { text-align: right; color: var(--muted); font-style: italic; margin: 18px 0 0; }
+
+  /* Dots nav */
+  nav.dots {
+    position: fixed; right: 14px; top: 50%; transform: translateY(-50%);
+    display: flex; flex-direction: column; gap: 10px; z-index: 10;
+  }
+  nav.dots a {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--line); display: block; transition: background .2s, transform .2s;
+  }
+  nav.dots a.active { background: var(--matcha); transform: scale(1.3); }
+
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  /* Hearts */
+  .heart {
+    position: fixed; bottom: -30px; pointer-events: none; z-index: 20;
+    animation: rise linear forwards; font-size: 1.4rem;
+  }
+  @keyframes rise { to { transform: translateY(-110vh) rotate(25deg); opacity: 0; } }
+
+  @media (max-width: 560px) {
+    nav.dots { display: none; }
+    .track { gap: 4px; }
+    .month { font-size: .6rem; border-radius: 7px; }
+    .letter { padding: 24px 18px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .heart { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="dots" aria-label="Pages"></nav>
+
+<!-- 1. Welcome -->
+<section class="page" id="hello">
+  <div class="inner hero reveal">
+    <p class="eyebrow">A little page, just for you</p>
+    <h1>Hi <span class="name">Koki</span> 🍵</h1>
+    <p class="sub">Clara to the world, Koki to me — and today this whole page is about you.</p>
+    <div class="verse">
+      <span class="theme">Joy</span>
+      <blockquote>“This is the day the Lord has made; we will rejoice and be glad in it.”</blockquote>
+      <cite>Psalm 117:24 (118:24)</cite>
+    </div>
+    <a class="next" href="#proud">Start ↓</a>
+  </div>
+</section>
+
+<!-- 2. Proud of the last 3 years -->
+<section class="page" id="proud">
+  <div class="inner reveal">
+    <p class="eyebrow">Three years down</p>
+    <h2>I am so, so proud of you.</h2>
+    <p>Three years of university, and you made it through every single obstacle that came your way — the exams, the deadlines, the long nights, and of course the endless <em class="q">“technical issues from the professors”</em> 🙃.</p>
+    <p>Lesser people would have given up. You didn’t. You kept going, again and again.</p>
+    <div class="years">
+      <div class="year"><b>1</b><span>survived</span></div>
+      <div class="year"><b>2</b><span>conquered</span></div>
+      <div class="year"><b>3</b><span>owned it</span></div>
+    </div>
+    <div class="verse">
+      <span class="theme">Strength</span>
+      <blockquote>“I can do all things through Christ who strengthens me.”</blockquote>
+      <cite>Philippians 4:13</cite>
+    </div>
+    <a class="next" href="#road">Keep going ↓</a>
+  </div>
+</section>
+
+<!-- 3. The remaining 9 months -->
+<section class="page" id="road">
+  <div class="inner reveal">
+    <p class="eyebrow">The road ahead</p>
+    <h2>So much has passed. Only 9 months left.</h2>
+    <p>I won’t lie to you — these last months might be exhausting. More research, more trainings, more studying, more days when you’re tired. But look how far you’ve already come.</p>
+    <div class="track" aria-label="Nine months until graduation">
+      <div class="month">1</div><div class="month">2</div><div class="month">3</div>
+      <div class="month">4</div><div class="month">5</div><div class="month">6</div>
+      <div class="month">7</div><div class="month">8</div><div class="month goal">🎓</div>
+    </div>
+    <div class="track-label"><span>Now</span><span>Graduation</span></div>
+    <div class="verse">
+      <span class="theme">Courage over fear</span>
+      <blockquote>“But those who wait on the Lord shall renew their strength; they shall mount up with wings like eagles, they shall run and not be weary, they shall walk and not faint.”</blockquote>
+      <cite>Isaiah 40:31</cite>
+    </div>
+    <a class="next" href="#ending">↓</a>
+  </div>
+</section>
+
+<!-- 4. Happy endings & memories -->
+<section class="page" id="ending">
+  <div class="inner reveal">
+    <p class="eyebrow">Every good story</p>
+    <h2>The ending is always the happy part.</h2>
+    <p>In every movie and on every trip, the hard parts fade. What stays are the good memories — the laughs with your friends, the moments in between lectures, the little wins that made it all worth it.</p>
+    <p>One day you’ll look back at university and smile at:</p>
+    <ul class="memories">
+      <li>😂 laughing until it hurt</li>
+      <li>☕ coffee & matcha runs</li>
+      <li>📚 cramming together</li>
+      <li>🧪 the lab days</li>
+      <li>🫶 the friends who stayed</li>
+    </ul>
+    <div class="verse">
+      <span class="theme">Joy after the struggle</span>
+      <blockquote>“Those who sow in tears shall reap in joy.”</blockquote>
+      <cite>Psalm 125:5 (126:5)</cite>
+    </div>
+    <a class="next" href="#koki">↓</a>
+  </div>
+</section>
+
+<!-- 5. All about Koki -->
+<section class="page" id="koki">
+  <div class="inner reveal">
+    <p class="eyebrow">The official Koki file</p>
+    <h2>Things I know about you by heart.</h2>
+    <div class="facts">
+      <div class="card nope">
+        <h3>Keep away from Koki</h3>
+        <ul>
+          <li><span class="ico">🍌</span>Bananas</li>
+          <li><span class="ico">🍓</span>Strawberries</li>
+          <li><span class="ico">☀️</span>Hot sunshine</li>
+          <li><span class="ico">🌶️</span>Anything spicy</li>
+          <li><span class="ico">🪵</span>Cinnamon</li>
+        </ul>
+      </div>
+      <div class="card love">
+        <h3>Koki runs on</h3>
+        <ul>
+          <li><span class="ico">🥤</span>Red Bull White Edition</li>
+          <li><span class="ico">🍵</span>Matcha (obviously)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Future</h3>
+        <ul>
+          <li><span class="ico">🧬</span>Biotechnology student</li>
+          <li><span class="ico">👩‍🔬</span>Future <em>ashtar doctora</em></li>
+        </ul>
+      </div>
+    </div>
+    <div class="verse">
+      <span class="theme">Wonder</span>
+      <blockquote>“I will praise You, for I am fearfully and wonderfully made; marvelous are Your works, and that my soul knows very well.”</blockquote>
+      <cite>Psalm 138:14 (139:14)</cite>
+    </div>
+    <a class="next" href="#graduation">↓</a>
+  </div>
+</section>
+
+<!-- 6. Graduation is near -->
+<section class="page" id="graduation">
+  <div class="inner reveal">
+    <p class="eyebrow">Almost there</p>
+    <h2>Your graduation is so near, Koki. 🎓</h2>
+    <p>This is the final stretch. Keep working hard, keep showing up, and be patient with yourself for these next few months. Every page you read, every experiment, every late night is one step closer to that day.</p>
+    <p>And when it comes, I’ll be the loudest one cheering.</p>
+    <div class="verse">
+      <span class="theme">Patience</span>
+      <blockquote>“And let us not grow weary while doing good, for in due season we shall reap if we do not lose heart.”</blockquote>
+      <cite>Galatians 6:9</cite>
+    </div>
+    <a class="next" href="#letter">One last thing ↓</a>
+  </div>
+</section>
+
+<!-- 7. Final message -->
+<section class="page" id="letter">
+  <div class="inner reveal">
+    <div class="letter">
+      <p class="hi">Kokiiiii,</p>
+      <p>I want to tell you that I am super proud of what you achieved and what you will achieve in the near future. You are one of the most hardworking people I have ever seen.</p>
+      <p>Ana fakhor b kol khatwa enti btakhdeha w daiman btakhdi khatwa l odam nahiet enk tb2i ashtar doctora hata law hia small baby steps ana bardo fakhor beeha mn awel el research wel trainings el kter w el mozkara wa2t ma enti btkoni ta3bana aw msh adra bs bardo btkameli 3shan twsli l enk tb2i ashtar doctora. kfaia enk asln btestahmeli kol el bahayem eli 3ndk dol asln 😂.</p>
+      <p>Thank you for every time you made me proud ❤️</p>
+    </div>
+    <div class="verse">
+      <span class="theme">Gratitude & love</span>
+      <blockquote>“I thank my God upon every remembrance of you.”</blockquote>
+      <cite>Philippians 1:3</cite>
+    </div>
+    <a class="next" href="#hello" id="again">Back to the top ↑</a>
+  </div>
+</section>
+
+<script>
+  const pages = [...document.querySelectorAll('section.page')];
+  const nav = document.querySelector('nav.dots');
+  pages.forEach(p => {
+    const a = document.createElement('a');
+    a.href = '#' + p.id;
+    a.setAttribute('aria-label', p.id);
+    nav.appendChild(a);
+  });
+  const dots = [...nav.children];
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.querySelector('.reveal')?.classList.add('in');
+      const i = pages.indexOf(e.target);
+      dots.forEach((d, j) => d.classList.toggle('active', i === j));
+      if (e.target.id === 'letter') hearts();
+    });
+  }, { threshold: 0.4 });
+  pages.forEach(p => io.observe(p));
+
+  let shown = false;
+  function hearts() {
+    if (shown || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    shown = true;
+    const icons = ['❤️', '🍵', '🎓', '💚', '✨'];
+    for (let i = 0; i < 28; i++) {
+      setTimeout(() => {
+        const h = document.createElement('span');
+        h.className = 'heart';
+        h.textContent = icons[i % icons.length];
+        h.style.left = Math.random() * 100 + 'vw';
+        h.style.animationDuration = 4 + Math.random() * 3 + 's';
+        document.body.appendChild(h);
+        setTimeout(() => h.remove(), 8000);
+      }, i * 180);
+    }
+  }
+</script>
+</body>
+</html>
